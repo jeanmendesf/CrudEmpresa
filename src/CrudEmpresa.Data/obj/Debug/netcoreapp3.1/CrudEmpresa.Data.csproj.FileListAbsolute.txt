@@ -1,0 +1,4 @@
+C:\Dev\CSharp\CrudEmpresa\CrudEmpresa\src\CrudEmpresa.Data\bin\Debug\netcoreapp3.1\CrudEmpresa.Model.dll
+C:\Dev\CSharp\CrudEmpresa\CrudEmpresa\src\CrudEmpresa.Data\obj\Debug\netcoreapp3.1\CrudEmpresa.Data.csprojAssemblyReference.cache
+C:\Dev\CSharp\CrudEmpresa\CrudEmpresa\src\CrudEmpresa.Data\obj\Debug\netcoreapp3.1\CrudEmpresa.Data.AssemblyInfoInputs.cache
+C:\Dev\CSharp\CrudEmpresa\CrudEmpresa\src\CrudEmpresa.Data\obj\Debug\netcoreapp3.1\CrudEmpresa.Data.AssemblyInfo.cs
