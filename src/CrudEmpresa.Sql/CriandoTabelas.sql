@@ -15,3 +15,6 @@ CREATE TABLE Departamento(
 	Id INT PRIMARY KEY NOT NULL,
 	Nome VARCHAR(100)
 )
+
+USE db_CrudEmpresa
+INSERT INTO Departamento('Ti')

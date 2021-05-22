@@ -2,3 +2,11 @@ C:\Dev\CSharp\CrudEmpresa\CrudEmpresa\src\CrudEmpresa.Data\bin\Debug\netcoreapp3
 C:\Dev\CSharp\CrudEmpresa\CrudEmpresa\src\CrudEmpresa.Data\obj\Debug\netcoreapp3.1\CrudEmpresa.Data.csprojAssemblyReference.cache
 C:\Dev\CSharp\CrudEmpresa\CrudEmpresa\src\CrudEmpresa.Data\obj\Debug\netcoreapp3.1\CrudEmpresa.Data.AssemblyInfoInputs.cache
 C:\Dev\CSharp\CrudEmpresa\CrudEmpresa\src\CrudEmpresa.Data\obj\Debug\netcoreapp3.1\CrudEmpresa.Data.AssemblyInfo.cs
+C:\Dev\CSharp\CrudEmpresa\CrudEmpresa\src\CrudEmpresa.Data\bin\Debug\netcoreapp3.1\CrudEmpresa.Data.deps.json
+C:\Dev\CSharp\CrudEmpresa\CrudEmpresa\src\CrudEmpresa.Data\bin\Debug\netcoreapp3.1\CrudEmpresa.Data.dll
+C:\Dev\CSharp\CrudEmpresa\CrudEmpresa\src\CrudEmpresa.Data\bin\Debug\netcoreapp3.1\CrudEmpresa.Data.pdb
+C:\Dev\CSharp\CrudEmpresa\CrudEmpresa\src\CrudEmpresa.Data\bin\Debug\netcoreapp3.1\CrudEmpresa.Model.pdb
+C:\Dev\CSharp\CrudEmpresa\CrudEmpresa\src\CrudEmpresa.Data\obj\Debug\netcoreapp3.1\CrudEmpresa.Data.csproj.CoreCompileInputs.cache
+C:\Dev\CSharp\CrudEmpresa\CrudEmpresa\src\CrudEmpresa.Data\obj\Debug\netcoreapp3.1\CrudEmpresa.Data.csproj.CopyComplete
+C:\Dev\CSharp\CrudEmpresa\CrudEmpresa\src\CrudEmpresa.Data\obj\Debug\netcoreapp3.1\CrudEmpresa.Data.dll
+C:\Dev\CSharp\CrudEmpresa\CrudEmpresa\src\CrudEmpresa.Data\obj\Debug\netcoreapp3.1\CrudEmpresa.Data.pdb
