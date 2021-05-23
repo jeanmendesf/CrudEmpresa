@@ -11,7 +11,8 @@ namespace CrudEmpresa.Data.DAL
         string connectionString = @"Data Source =  DESKTOP-9D3IEDO\SQLEXPRESS01;
                                     Initial Catalog = db_CrudEmpresa; Integrated Security=True";
 
-        public IEnumerable<Departamento> ObterDepartamentos()
+
+        public IEnumerable<Departamento> ObterTodosDepartamentos()
         {
             List<Departamento> listaDepartamentos = new List<Departamento>();
             using (SqlConnection connection = new SqlConnection(connectionString))
@@ -36,7 +37,77 @@ namespace CrudEmpresa.Data.DAL
                 return listaDepartamentos;
             }
         }
-    
-    
+        
+        
+        public Departamento ObterDiretorPorId(int id)
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                Departamento departamento = new Departamento();
+
+                SqlCommand cmd = new SqlCommand("SELECT * FROM dbo.Departamento WHERE Id =" + id, connection);
+                cmd.CommandType = CommandType.Text;
+
+                connection.Open();
+                SqlDataReader reader = cmd.ExecuteReader();
+
+                while(reader.Read())
+                {
+                    departamento.Id = Convert.ToInt32(reader["Id"]);
+                    departamento.Nome = reader["Nome"].ToString();
+                }
+
+                return departamento;
+            }
+        }
+
+
+        public void AdicionarDepartamento(Departamento departamento)
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                SqlCommand cmd = new SqlCommand("INSERT INTO dbo.Departamento(Nome) VALUES(@Nome)",connection);
+                cmd.CommandType = CommandType.Text;
+                cmd.Parameters.AddWithValue("@Nome", departamento.Nome);
+
+                connection.Open();
+                cmd.ExecuteNonQuery();
+                connection.Close();
+            }
+        }
+
+
+        public void AtualizarDepartamento(Departamento departamento)
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                SqlCommand cmd = new SqlCommand("UPDATE dbo.Departamento SET Nome=@Nome WHERE Id=@Id", connection);
+                cmd.CommandType = CommandType.Text;
+
+                cmd.Parameters.AddWithValue("@Id", departamento.Id);
+                cmd.Parameters.AddWithValue("@Nome", departamento.Nome);
+
+                connection.Open();
+                cmd.ExecuteNonQuery();
+                connection.Close();
+            }
+        }
+            
+
+        public void DeletarDepartamento(int id)
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                SqlCommand cmd = new SqlCommand("DELETE FROM dbo.Departamento WHERE Id=@Id", connection);
+                cmd.CommandType = CommandType.Text;
+                cmd.Parameters.AddWithValue("@Id", id);
+
+                connection.Open();
+                cmd.ExecuteNonQuery();
+                connection.Close();
+            }
+        }
+
+
     }
 }

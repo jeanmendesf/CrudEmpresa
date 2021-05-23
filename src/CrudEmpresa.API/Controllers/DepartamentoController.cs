@@ -26,10 +26,49 @@ namespace CrudEmpresa.API.Controllers
         public ActionResult ObterTodosDepartamentos()
         {
             IEnumerable<Departamento> listaDepartamentos;
-            listaDepartamentos = _departamentoDAL.ObterDepartamentos();
+            listaDepartamentos = _departamentoDAL.ObterTodosDepartamentos();
 
             return Ok(listaDepartamentos);
         }
 
+
+        [HttpGet]
+        [Route("{id:int}")]
+        public ActionResult ObterDepartamentoPorId(int id)
+        {
+            Departamento departamento = new Departamento();
+            departamento = _departamentoDAL.ObterDiretorPorId(id);
+
+            return Ok(departamento);
+        }
+
+
+        [HttpPost]
+        [Route("adicionar")]
+        public ActionResult AdicionarDepartamento(Departamento departamento)
+        {
+            _departamentoDAL.AdicionarDepartamento(departamento);
+            return Ok();
+        }
+
+
+        [HttpPut]
+        [Route("atualizar/{id}")]
+        public ActionResult AtualizarDepartamento(Departamento departamento)
+        {
+            _departamentoDAL.AtualizarDepartamento(departamento);
+
+            return Ok();
+        }
+
+
+        [HttpDelete]
+        [Route("deletar/{id}")]
+        public ActionResult DeletarDepartamento(int id)
+        {
+            _departamentoDAL.DeletarDepartamento(id);
+
+            return Ok();
+        }
     }
 }
