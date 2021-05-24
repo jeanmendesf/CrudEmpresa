@@ -1,1 +1,15 @@
-<p>obter-departamento works!</p>
+<h1>Departamentos</h1>
+
+<table class="table">
+    <thead>
+        <th>Id</th>
+        <th>Departamento</th>
+    </thead>
+    <div>
+        <tr *ngFor="let varDepartamentos of departamentos">
+            <td>{{varDepartamentos.id}}</td>
+            <td>{{varDepartamentos.nome}}</td>
+        </tr>
+    </div>
+
+</table>
