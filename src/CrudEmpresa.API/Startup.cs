@@ -15,6 +15,8 @@ namespace CrudEmpresa.API
 {
     public class Startup
     {
+        readonly string OrigensPermitidas = "_origensPermitidas";
+
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -26,6 +28,14 @@ namespace CrudEmpresa.API
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+            services.AddCors(options =>
+            {
+                options.AddPolicy(name: OrigensPermitidas,
+                    builder =>
+                    {
+                        builder.WithOrigins("http://localhost:4200").AllowAnyMethod().AllowAnyHeader();
+                    });
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -46,6 +56,9 @@ namespace CrudEmpresa.API
             {
                 endpoints.MapControllers();
             });
+
+            app.UseCors(OrigensPermitidas);
+
         }
     }
 }
