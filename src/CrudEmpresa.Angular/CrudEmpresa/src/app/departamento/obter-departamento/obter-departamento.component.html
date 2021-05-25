@@ -1,15 +1,54 @@
-<h1>Departamentos</h1>
+<div class="main-container">
+    <h1 class="titulo-pagina">Departamentos</h1>
 
-<table class="table">
-    <thead>
-        <th>Id</th>
-        <th>Departamento</th>
-    </thead>
-    <div>
-        <tr *ngFor="let varDepartamentos of departamentos">
-            <td>{{varDepartamentos.id}}</td>
-            <td>{{varDepartamentos.nome}}</td>
-        </tr>
+    <!-- Botão Modal -->
+    <button type="button" class="btn btnVerde" data-toggle="modal" data-target="#modalAddEditDepartamento"
+        data-backdrop="static" data-keyboard="false" (click)="adicionarDepartamento()">
+        Adicionar Departamento
+    </button>
+
+
+    <!-- MODAL -->
+    <div class="modal fade" id="modalAddEditDepartamento" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <h4 class="modal-title">{{tituloModal}}</h4>
+                    <button type="button" class="close" data-dismiss="modal" (click)="fecharModal()">
+                        <span>&times;</span>
+                    </button>
+                </div>
+
+                <div class="modal-body">
+                    <app-add-edit-departamento [departamentoEditAdd]="departamentoEditAdd"
+                        *ngIf="ativarAddEditDepartamento">
+                    </app-add-edit-departamento>
+                </div>
+
+            </div>
+        </div>
     </div>
 
-</table>
+
+    <!-- Tabela com departamentos -->
+    <div class="tabela">
+        <table class="table ">
+            <thead>
+                <th>Id</th>
+                <th>Departamento</th>
+            </thead>
+            <tr *ngFor="let varDepartamento of departamentos">
+                <td>{{varDepartamento.id}}</td>
+                <td>{{varDepartamento.nome}}</td>
+                <td>
+                    <button type="button" class="btn btnAmarelo" data-toggle="modal"
+                        data-target="#modalAddEditDepartamento" data-backdrop="static" data-keyboard="false"
+                        (click)="atualizarDepartamento(varDepartamento)">
+                        Atualizar</button>
+                    <button class="btn btnVermelho" (click)="deletarDepartamento(varDepartamento)">Excluir</button>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>

@@ -12,6 +12,8 @@ import { APP_BASE_HREF } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { rotasConfig } from './app.routes';
 import { HttpClientModule } from '@angular/common/http';
+import { AddEditDepartamentoComponent } from './departamento/add-edit-departamento/add-edit-departamento.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -19,9 +21,11 @@ import { HttpClientModule } from '@angular/common/http';
     ObterDepartamentoComponent,
     HomeComponent,
     MenuComponent,
-    RodapeComponent
+    RodapeComponent,
+    AddEditDepartamentoComponent
   ],
   imports: [
+    FormsModule,
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,

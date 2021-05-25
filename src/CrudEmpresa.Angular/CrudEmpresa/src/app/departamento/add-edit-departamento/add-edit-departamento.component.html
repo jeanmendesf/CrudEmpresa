@@ -1,0 +1,17 @@
+<div class="form-group row">
+    <label class="col-sm-2 col-form-label" for="nomeDepartamento">Departamento: </label>
+    <div class="col-sm-6">
+        <input type="text" id="nomeDepartamento" class="form-control" [(ngModel)]="novoDepartamento.nome"
+            placeholder="Digite o nome do departamento.">
+    </div>
+</div>
+
+<button (click)="adicionarDepartamento()" *ngIf="novoDepartamento.id==0" class="btn btnVerde">
+    Adicionar
+</button>
+
+<button (click)="atualizarDepartamento()" *ngIf="novoDepartamento.id!=0" class="btn btn-info">
+    Editar
+</button>
+
+<button type="button" class="btn btnVermelho" data-dismiss="modal">Cancelar</button>
