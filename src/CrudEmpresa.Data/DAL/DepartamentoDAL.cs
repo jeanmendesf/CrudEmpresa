@@ -98,9 +98,8 @@ namespace CrudEmpresa.Data.DAL
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
-                SqlCommand cmd = new SqlCommand("DELETE FROM dbo.Departamento WHERE Id=@Id", connection);
+                SqlCommand cmd = new SqlCommand("DELETE FROM dbo.Departamento WHERE Id= " + id, connection);
                 cmd.CommandType = CommandType.Text;
-                cmd.Parameters.AddWithValue("@Id", id);
 
                 connection.Open();
                 cmd.ExecuteNonQuery();

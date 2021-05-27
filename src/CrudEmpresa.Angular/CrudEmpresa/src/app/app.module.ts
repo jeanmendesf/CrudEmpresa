@@ -14,6 +14,7 @@ import { rotasConfig } from './app.routes';
 import { HttpClientModule } from '@angular/common/http';
 import { AddEditDepartamentoComponent } from './departamento/add-edit-departamento/add-edit-departamento.component';
 import { FormsModule } from '@angular/forms';
+import { ObterFuncionarioComponent } from './funcionario/obter-funcionario/obter-funcionario.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { FormsModule } from '@angular/forms';
     HomeComponent,
     MenuComponent,
     RodapeComponent,
-    AddEditDepartamentoComponent
+    AddEditDepartamentoComponent,
+    ObterFuncionarioComponent
   ],
   imports: [
     FormsModule,

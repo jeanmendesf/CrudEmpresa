@@ -53,7 +53,7 @@ namespace CrudEmpresa.API.Controllers
 
 
         [HttpPut]
-        [Route("atualizar/{id}")]
+        [Route("atualizar/{id:int}")]
         public ActionResult AtualizarDepartamento(Departamento departamento)
         {
             _departamentoDAL.AtualizarDepartamento(departamento);
@@ -63,7 +63,7 @@ namespace CrudEmpresa.API.Controllers
 
 
         [HttpDelete]
-        [Route("deletar/{id}")]
+        [Route("deletar/{id:int}")]
         public ActionResult DeletarDepartamento(int id)
         {
             _departamentoDAL.DeletarDepartamento(id);
