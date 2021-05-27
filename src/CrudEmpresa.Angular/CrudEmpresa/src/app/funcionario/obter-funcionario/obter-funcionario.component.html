@@ -1,4 +1,23 @@
 <div class="main-container">
+    <h1 class="titulo-pagina">Funcionarios</h1>
 
-    <p>obter-funcionario works!</p>
+
+    <!-- Tabela com funcionarios -->
+    <div class="tabela">
+        <table class="table">
+            <thead>
+                <th>Id</th>
+                <th>Nome</th>
+                <th>Cpf</th>
+                <th>Data de nascimento</th>
+            </thead>
+            <tr *ngFor="let varFuncionario of funcionarios">
+                <td>{{varFuncionario.id}}</td>
+                <td>{{varFuncionario.nome}}</td>
+                <td>{{varFuncionario.cpf}}</td>
+                <td>{{varFuncionario.dataNascimento}}</td>
+            </tr>
+        </table>
+    </div>
+
 </div>

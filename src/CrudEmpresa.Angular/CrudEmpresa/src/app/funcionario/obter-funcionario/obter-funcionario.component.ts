@@ -1,3 +1,5 @@
+import { FuncionarioService } from './../../servicos/funcionario.service';
+import { Funcionario } from './../../classes/funcionarioClasse';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +9,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ObterFuncionarioComponent implements OnInit {
 
-  constructor() { }
+  constructor(private funcionarioService: FuncionarioService) { }
 
-  ngOnInit(): void {
+  ngOnInit(): void { this.atualizarListaFuncionario(); }
+
+  //variáveis ----------------------------------------------------------------------------
+  public funcionarios!: Funcionario[];
+  public funcionario!: Funcionario;
+  public funcionarioEditAdd!: Funcionario;
+  public tituloModal: string = "";
+  public ativarAddEditFuncionario: boolean = false;
+
+
+  //Métodos ------------------------------------------------------------------------------
+  atualizarListaFuncionario() {
+    return this.funcionarioService.ObterTodosFuncionarios()
+      .subscribe(lstFuncionario => { this.funcionarios = lstFuncionario })
   }
+
 
 }

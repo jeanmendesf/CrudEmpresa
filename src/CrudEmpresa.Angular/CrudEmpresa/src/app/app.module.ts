@@ -1,3 +1,4 @@
+import { FuncionarioService } from './servicos/funcionario.service';
 import { DepartamentoService } from './servicos/departamento.service';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -33,7 +34,7 @@ import { ObterFuncionarioComponent } from './funcionario/obter-funcionario/obter
     HttpClientModule,
     [RouterModule.forRoot(rotasConfig)]
   ],
-  providers: [DepartamentoService, { provide: APP_BASE_HREF, useValue: '/' }],
+  providers: [DepartamentoService, FuncionarioService, { provide: APP_BASE_HREF, useValue: '/' }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
