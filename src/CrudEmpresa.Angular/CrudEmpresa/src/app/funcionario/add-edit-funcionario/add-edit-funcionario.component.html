@@ -1,0 +1,23 @@
+<div class="form-group">
+    <label class="col-sm-2 col-form-label" for="nomeFuncionario">Funcionario: </label>
+    <div class="col-sm-6">
+        <input type="text" id="nomeFuncionario" class="form-control" [(ngModel)]="novoFuncionario.nome"
+            placeholder="Nome do funcionario.">
+    </div>
+
+    <label class="col-sm-2 col-form-label" for="cpfFuncionario">Cpf: </label>
+    <div class="col-sm-6">
+        <input type="text" id="cpfFuncionario" class="form-control" [(ngModel)]="novoFuncionario.cpf"
+            placeholder="Cpf do funcionario.">
+    </div>
+
+    <label class="col-sm-2 col-form-label" for="dataNascimentoFuncionario">Data de nascimento: </label>
+    <div class="col-sm-6">
+        <input type="date" id="dataNascimentoFuncionario" class="form-control"
+            [(ngModel)]="novoFuncionario.dataNascimento" placeholder="Data nascimento.">
+    </div>
+</div>
+
+<button (click)="adicionarFuncionario()" *ngIf="novoFuncionario.id==0" class="btn btnVerde">
+    Adicionar
+</button>

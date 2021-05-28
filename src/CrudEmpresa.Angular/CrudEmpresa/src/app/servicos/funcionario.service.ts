@@ -1,7 +1,7 @@
-import { Funcionario } from './../classes/funcionarioClasse';
 import { HttpClient } from "@angular/common/http";
 import { Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
+import { Funcionario } from "../classes/funcionarioClasse";
 
 @Injectable({
     providedIn: 'root'
@@ -16,10 +16,10 @@ export class FuncionarioService {
     ObterTodosFuncionarios(): Observable<Funcionario[]> {
         return this.http.get<Funcionario[]>(this.apiUrl + '/funcionario')
     }
-        
 
-    AdicionarFuncionario() {
 
+    AdicionarFuncionario(funcionario: Funcionario) {
+        return this.http.post(this.apiUrl + '/funcionario/adicionar', funcionario);
     }
 
     AtualizarFuncionario() {

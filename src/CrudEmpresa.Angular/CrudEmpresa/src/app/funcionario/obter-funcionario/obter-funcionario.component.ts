@@ -1,6 +1,7 @@
 import { FuncionarioService } from './../../servicos/funcionario.service';
 import { Funcionario } from './../../classes/funcionarioClasse';
 import { Component, OnInit } from '@angular/core';
+import { getLocaleDateTimeFormat } from '@angular/common';
 
 @Component({
   selector: 'app-obter-funcionario',
@@ -27,5 +28,16 @@ export class ObterFuncionarioComponent implements OnInit {
       .subscribe(lstFuncionario => { this.funcionarios = lstFuncionario })
   }
 
+  adicionarFuncionario() {
+    this.funcionarioEditAdd = { id: 0, nome: "", cpf: "", dataNascimento: new Date() };
+    this.tituloModal = "Adicionar colaborador";
+    this.ativarAddEditFuncionario = true;
+    this.atualizarListaFuncionario();
+  }
+
+  fecharModal() {
+    this.ativarAddEditFuncionario = false;
+    this.atualizarListaFuncionario();
+  }
 
 }

@@ -16,6 +16,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AddEditDepartamentoComponent } from './departamento/add-edit-departamento/add-edit-departamento.component';
 import { FormsModule } from '@angular/forms';
 import { ObterFuncionarioComponent } from './funcionario/obter-funcionario/obter-funcionario.component';
+import { AddEditFuncionarioComponent } from './funcionario/add-edit-funcionario/add-edit-funcionario.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { ObterFuncionarioComponent } from './funcionario/obter-funcionario/obter
     MenuComponent,
     RodapeComponent,
     AddEditDepartamentoComponent,
-    ObterFuncionarioComponent
+    ObterFuncionarioComponent,
+    AddEditFuncionarioComponent
   ],
   imports: [
     FormsModule,

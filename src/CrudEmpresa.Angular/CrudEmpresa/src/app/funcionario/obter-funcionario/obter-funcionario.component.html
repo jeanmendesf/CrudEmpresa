@@ -1,6 +1,36 @@
 <div class="main-container">
     <h1 class="titulo-pagina">Funcionarios</h1>
 
+    <!-- Botão Modal -->
+    <button type="button" class="btn btnVerde" data-toggle="modal" data-target="#modalAddEditFuncionario"
+        data-backdrop="static" data-keyboard="false" (click)="adicionarFuncionario()">
+        Adicionar Colaborador
+    </button>
+
+
+    <!-- MODAL -->
+    <div class="modal fade" id="modalAddEditFuncionario" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <h4 class="modal-header">{{tituloModal}}</h4>
+                    <button type="button" class="close" data-dismiss="modal" (click)="fecharModal()">
+                        <span>&times;</span>
+                    </button>
+                </div>
+
+                <div class="modal-body">
+                    <app-add-edit-funcionario [funcionarioEditAdd]="funcionarioEditAdd"
+                        *ngIf="ativarAddEditFuncionario">
+
+                    </app-add-edit-funcionario>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
 
     <!-- Tabela com funcionarios -->
     <div class="tabela">
@@ -15,7 +45,9 @@
                 <td>{{varFuncionario.id}}</td>
                 <td>{{varFuncionario.nome}}</td>
                 <td>{{varFuncionario.cpf}}</td>
-                <td>{{varFuncionario.dataNascimento}}</td>
+                <td>{{varFuncionario.dataNascimento | date: 'dd/MM/yyyy'}}</td>
+                <button class="btn btnAmarelo">Atualizar</button>
+                <button class="btn btnVermelho">Excluir</button>
             </tr>
         </table>
     </div>
