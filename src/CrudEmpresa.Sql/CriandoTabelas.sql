@@ -16,5 +16,10 @@ CREATE TABLE Departamento(
 	Nome VARCHAR(100)
 )
 
-USE db_CrudEmpresa
-INSERT INTO Departamento('Ti')
+
+--Criando a relação entre Departamento e Funcionarios
+CREATE TABLE Funcionario_Departamento(
+	Id INT PRIMARY KEY NOT NULL,
+)
+
+

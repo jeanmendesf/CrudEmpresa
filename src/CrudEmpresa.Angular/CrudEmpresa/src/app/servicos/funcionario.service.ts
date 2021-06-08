@@ -14,7 +14,7 @@ export class FuncionarioService {
 
 
     ObterTodosFuncionarios(): Observable<Funcionario[]> {
-        return this.http.get<Funcionario[]>(this.apiUrl + '/funcionario')
+        return this.http.get<Funcionario[]>(this.apiUrl + '/funcionario');
     }
 
 
@@ -22,12 +22,12 @@ export class FuncionarioService {
         return this.http.post(this.apiUrl + '/funcionario/adicionar', funcionario);
     }
 
-    AtualizarFuncionario() {
-
+    AtualizarFuncionario(funcionario: Funcionario) {
+        return this.http.put(this.apiUrl + '/funcionario/atualizar/' + funcionario.id, funcionario)
     }
 
-    DeletarFuncionario() {
-
+    DeletarFuncionario(id: number) {
+        return this.http.delete(this.apiUrl + '/funcionario/deletar/' + id);
     }
 
 }

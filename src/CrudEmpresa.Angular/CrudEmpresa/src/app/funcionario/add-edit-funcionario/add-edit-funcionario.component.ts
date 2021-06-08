@@ -2,6 +2,7 @@ import { Router } from '@angular/router';
 import { FuncionarioService } from './../../servicos/funcionario.service';
 import { Component, OnInit, Input } from '@angular/core';
 import { Funcionario } from 'src/app/classes/funcionarioClasse';
+import { DatePipe, formatDate } from '@angular/common';
 
 @Component({
   selector: 'app-add-edit-funcionario',
@@ -10,11 +11,13 @@ import { Funcionario } from 'src/app/classes/funcionarioClasse';
 })
 export class AddEditFuncionarioComponent implements OnInit {
 
-  constructor(private funcionarioService: FuncionarioService,
-    private rotas: Router) { }
+  constructor(
+    private funcionarioService: FuncionarioService,
+    private rotas: Router
+  ) { }
 
   ngOnInit(): void {
-    this.novoFuncionario = this.funcionarioEditAdd
+    this.novoFuncionario = this.funcionarioEditAdd;
   }
 
   //variáveis ----------------------------------------------------------------------------
@@ -26,4 +29,15 @@ export class AddEditFuncionarioComponent implements OnInit {
     this.funcionarioService.AdicionarFuncionario(this.novoFuncionario)
       .subscribe(x => { this.rotas.navigate(['/funcionario']) })
   }
+
+  atualizarFuncionario() {
+    this.funcionarioService.AtualizarFuncionario(this.novoFuncionario)
+      .subscribe(x => { this.rotas.navigate(['/funcionario']) })
+  }
+
+  updatedate(event: any) {
+    this.novoFuncionario.dataNascimento = new Date(event);
+  }
+
+
 }

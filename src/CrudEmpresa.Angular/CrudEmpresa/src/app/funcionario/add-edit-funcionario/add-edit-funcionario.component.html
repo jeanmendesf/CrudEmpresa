@@ -11,13 +11,19 @@
             placeholder="Cpf do funcionario.">
     </div>
 
-    <label class="col-sm-2 col-form-label" for="dataNascimentoFuncionario">Data de nascimento: </label>
+    <label class="col-sm-6 col-form-label" for="dataNascimentoFuncionario">Data de nascimento: </label>
     <div class="col-sm-6">
-        <input type="date" id="dataNascimentoFuncionario" class="form-control"
-            [(ngModel)]="novoFuncionario.dataNascimento" placeholder="Data nascimento.">
+        <!-- <input type="date" id="dataNascimentoFuncionario" class="form-control"
+            [(ngModel)]="novoFuncionario.dataNascimento"> -->
+        <input class="form-control" name="dataNascimentoFuncionario" (ngModelChange)="updatedate($event)"
+            [ngModel]="novoFuncionario.dataNascimento |date: 'yyyy-MM-dd'" #dataNascimento="ngModel" type="date">
     </div>
 </div>
 
+
 <button (click)="adicionarFuncionario()" *ngIf="novoFuncionario.id==0" class="btn btnVerde">
     Adicionar
+</button>
+<button (click)="atualizarFuncionario()" *ngIf="novoFuncionario.id != 0" class="btn btnAmarelo">
+    Atualizar
 </button>

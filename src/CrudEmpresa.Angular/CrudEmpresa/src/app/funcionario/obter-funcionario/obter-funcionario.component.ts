@@ -35,9 +35,22 @@ export class ObterFuncionarioComponent implements OnInit {
     this.atualizarListaFuncionario();
   }
 
+  atualizarFuncionario(funcionario: Funcionario) {
+    this.funcionarioEditAdd = funcionario;
+    this.tituloModal = "Editar funcionario";
+    this.ativarAddEditFuncionario = true;
+    this.atualizarListaFuncionario();
+  }
+
+  deletarFuncionario(funcionario: Funcionario) {
+    if (confirm('Deseja mesmo deletar o funcionario ' + funcionario.nome + ' ?')) {
+      this.funcionarioService.DeletarFuncionario(funcionario.id)
+        .subscribe(x => { this.atualizarListaFuncionario() })
+    }
+  }
+
   fecharModal() {
     this.ativarAddEditFuncionario = false;
     this.atualizarListaFuncionario();
   }
-
 }

@@ -15,7 +15,7 @@
 
                 <div class="modal-header">
                     <h4 class="modal-header">{{tituloModal}}</h4>
-                    <button type="button" class="close" data-dismiss="modal" (click)="fecharModal()">
+                    <button type="button" class="btn btnVermelho" data-dismiss="modal" (click)="fecharModal()">
                         <span>&times;</span>
                     </button>
                 </div>
@@ -46,8 +46,9 @@
                 <td>{{varFuncionario.nome}}</td>
                 <td>{{varFuncionario.cpf}}</td>
                 <td>{{varFuncionario.dataNascimento | date: 'dd/MM/yyyy'}}</td>
-                <button class="btn btnAmarelo">Atualizar</button>
-                <button class="btn btnVermelho">Excluir</button>
+                <button class="btn btnAmarelo" data-toggle="modal" data-target="#modalAddEditFuncionario"
+                    data-backdrop="false" (click)="atualizarFuncionario(varFuncionario)">Atualizar</button>
+                <button class="btn btnVermelho" (click)="deletarFuncionario(varFuncionario)">Excluir</button>
             </tr>
         </table>
     </div>
