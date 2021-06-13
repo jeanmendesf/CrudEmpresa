@@ -10,5 +10,9 @@ namespace CrudEmpresa.Model.Models
         public string Nome { get; set; }
         public string Cpf { get; set; }
         public DateTime DataNascimento { get; set; }
+
+
+        public Departamento Departamento { get; set; }
+        public int DepartamentoId { get; set; }
     }
 }

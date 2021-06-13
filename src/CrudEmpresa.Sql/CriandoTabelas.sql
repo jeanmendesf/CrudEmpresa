@@ -18,8 +18,28 @@ CREATE TABLE Departamento(
 
 
 --Criando a relação entre Departamento e Funcionarios
-CREATE TABLE Funcionario_Departamento(
-	Id INT PRIMARY KEY NOT NULL,
-)
+USE db_CrudEmpresa
+CREATE TABLE Funcionario_Departamento( Id INT PRIMARY KEY NOT NULL)
+
+ALTER TABLE Funcionario_Departamento
+	ADD FuncionarioId INT NOT NULL
+	CONSTRAINT fk_Funcionario
+	FOREIGN KEY (FuncionarioId)
+	REFERENCES dbo.Funcionario(Id)
+
+ALTER TABLE Funcionario_Departamento
+	ADD DepartamentoId INT NOT NULL
+	CONSTRAINT fk_Departamento
+	FOREIGN KEY (DepartamentoId)
+	REFERENCES dbo.Departamento(Id)
+
+ALTER TABLE Funcionario 
+	ADD DepartamentoId int NOT NULL
+	CONSTRAINT fk_departamentoId
+	FOREIGN KEY (DepartamentoId)
+	References dbo.Departamento(Id)
+
+SELECT * FROM Funcionario
 
 
+DELETE FROM Funcionario WHERE Id=1

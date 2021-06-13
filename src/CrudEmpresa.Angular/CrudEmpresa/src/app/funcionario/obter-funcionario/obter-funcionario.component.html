@@ -40,17 +40,18 @@
                 <th>Nome</th>
                 <th>Cpf</th>
                 <th>Data de nascimento</th>
+                <th>Departamento</th>
             </thead>
             <tr *ngFor="let varFuncionario of funcionarios">
                 <td>{{varFuncionario.id}}</td>
                 <td>{{varFuncionario.nome}}</td>
                 <td>{{varFuncionario.cpf}}</td>
                 <td>{{varFuncionario.dataNascimento | date: 'dd/MM/yyyy'}}</td>
+                <td>{{varFuncionario.departamento.nome}}</td>
                 <button class="btn btnAmarelo" data-toggle="modal" data-target="#modalAddEditFuncionario"
                     data-backdrop="false" (click)="atualizarFuncionario(varFuncionario)">Atualizar</button>
                 <button class="btn btnVermelho" (click)="deletarFuncionario(varFuncionario)">Excluir</button>
             </tr>
         </table>
     </div>
-
 </div>

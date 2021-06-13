@@ -18,6 +18,12 @@
         <input class="form-control" name="dataNascimentoFuncionario" (ngModelChange)="updatedate($event)"
             [ngModel]="novoFuncionario.dataNascimento |date: 'yyyy-MM-dd'" #dataNascimento="ngModel" type="date">
     </div>
+
+
+    <select  id="funcionarioDepartamento" [(ngModel)]="departamentoSelecionadoId">
+        <option *ngFor="let departamento of listaDepartamentos" [ngValue]="departamento.id">{{departamento.nome}}
+        </option>
+    </select>
 </div>
 
 

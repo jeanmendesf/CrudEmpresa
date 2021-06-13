@@ -13,10 +13,12 @@ namespace CrudEmpresa.API.Controllers
     public class FuncionarioController : ControllerBase
     {
         readonly FuncionarioDAL _funcionarioDAL;
+        readonly DepartamentoDAL _departamentoDAL;
 
         public FuncionarioController()
         {
             _funcionarioDAL = new FuncionarioDAL();
+            _departamentoDAL = new DepartamentoDAL();
         }
 
 
@@ -26,6 +28,11 @@ namespace CrudEmpresa.API.Controllers
         {
             IEnumerable<Funcionario> listaFuncionarios;
             listaFuncionarios = _funcionarioDAL.ObterTodosFuncionarios();
+
+            foreach (Funcionario funcionario in listaFuncionarios)
+            {
+                funcionario.Departamento = _departamentoDAL.ObterDepartamentoPorId(funcionario.DepartamentoId);
+            }
 
             return Ok(listaFuncionarios);
         }
@@ -68,5 +75,7 @@ namespace CrudEmpresa.API.Controllers
             return Ok();
         }
     
+
+        
     }
 }

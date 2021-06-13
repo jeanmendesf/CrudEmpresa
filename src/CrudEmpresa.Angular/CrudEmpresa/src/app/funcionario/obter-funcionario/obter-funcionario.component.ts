@@ -1,7 +1,8 @@
+import { Funcionario } from 'src/app/classes/funcionarioClasse';
+import { DepartamentoService } from './../../servicos/departamento.service';
+import { Departamento } from './../../classes/departamentoClasse';
 import { FuncionarioService } from './../../servicos/funcionario.service';
-import { Funcionario } from './../../classes/funcionarioClasse';
 import { Component, OnInit } from '@angular/core';
-import { getLocaleDateTimeFormat } from '@angular/common';
 
 @Component({
   selector: 'app-obter-funcionario',
@@ -10,26 +11,34 @@ import { getLocaleDateTimeFormat } from '@angular/common';
 })
 export class ObterFuncionarioComponent implements OnInit {
 
-  constructor(private funcionarioService: FuncionarioService) { }
+  constructor(
+    private funcionarioService: FuncionarioService,
+    private departamentoService: DepartamentoService
+  ) { }
 
-  ngOnInit(): void { this.atualizarListaFuncionario(); }
+  ngOnInit(): void {
+    this.atualizarListaFuncionario();
+  }
 
   //variáveis ----------------------------------------------------------------------------
   public funcionarios!: Funcionario[];
-  public funcionario!: Funcionario;
   public funcionarioEditAdd!: Funcionario;
   public tituloModal: string = "";
   public ativarAddEditFuncionario: boolean = false;
+
+  public departamento!: Departamento;
 
 
   //Métodos ------------------------------------------------------------------------------
   atualizarListaFuncionario() {
     return this.funcionarioService.ObterTodosFuncionarios()
-      .subscribe(lstFuncionario => { this.funcionarios = lstFuncionario })
+      .subscribe(lstFuncionario => { this.funcionarios = lstFuncionario });
   }
 
+ 
+
   adicionarFuncionario() {
-    this.funcionarioEditAdd = { id: 0, nome: "", cpf: "", dataNascimento: new Date() };
+    this.funcionarioEditAdd = { id: 0, nome: "", cpf: "", dataNascimento: new Date(), departamentoId: 0, departamento: { id: 0, nome: "" } };
     this.tituloModal = "Adicionar colaborador";
     this.ativarAddEditFuncionario = true;
     this.atualizarListaFuncionario();
@@ -53,4 +62,6 @@ export class ObterFuncionarioComponent implements OnInit {
     this.ativarAddEditFuncionario = false;
     this.atualizarListaFuncionario();
   }
+
+
 }

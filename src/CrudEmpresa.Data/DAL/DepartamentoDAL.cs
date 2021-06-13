@@ -39,7 +39,7 @@ namespace CrudEmpresa.Data.DAL
         }
         
         
-        public Departamento ObterDiretorPorId(int id)
+        public Departamento ObterDepartamentoPorId(int id)
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -57,6 +57,7 @@ namespace CrudEmpresa.Data.DAL
                     departamento.Nome = reader["Nome"].ToString();
                 }
 
+                connection.Close();
                 return departamento;
             }
         }

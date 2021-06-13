@@ -9,6 +9,8 @@ namespace CrudEmpresa.Data.DAL
 {
     public class FuncionarioDAL
     {
+        readonly DepartamentoDAL _departamentoDAL;
+
         string connectionString = @"Data Source =  DESKTOP-9D3IEDO\SQLEXPRESS01;
                                     Initial Catalog = db_CrudEmpresa; Integrated Security=True";
 
@@ -32,11 +34,13 @@ namespace CrudEmpresa.Data.DAL
                     funcionario.Nome = reader["Nome"].ToString();
                     funcionario.Cpf = reader["Cpf"].ToString();
                     funcionario.DataNascimento = Convert.ToDateTime(reader["DataNascimento"]);
+                    funcionario.DepartamentoId = Convert.ToInt32(reader["DepartamentoId"]);
+
 
                     listaFuncionarios.Add(funcionario);
                 }
                 connection.Close();
-            }
+            }            
             return listaFuncionarios;
         }
 
@@ -69,12 +73,13 @@ namespace CrudEmpresa.Data.DAL
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
-                SqlCommand cmd = new SqlCommand("INSERT INTO dbo.Funcionario(Nome, Cpf, DataNascimento) VALUES(@Nome, @Cpf, @DataNascimento)", connection);
+                SqlCommand cmd = new SqlCommand("INSERT INTO dbo.Funcionario(Nome, Cpf, DataNascimento, DepartamentoId) VALUES(@Nome, @Cpf, @DataNascimento, @DepartamentoId)", connection);
                 cmd.CommandType = CommandType.Text;
 
                 cmd.Parameters.AddWithValue("@Nome", funcionario.Nome);
                 cmd.Parameters.AddWithValue("@Cpf", funcionario.Cpf);
                 cmd.Parameters.AddWithValue("@DataNascimento", funcionario.DataNascimento);
+                cmd.Parameters.AddWithValue("@DepartamentoId", funcionario.DepartamentoId);
 
                 connection.Open();
                 cmd.ExecuteNonQuery();
@@ -87,13 +92,14 @@ namespace CrudEmpresa.Data.DAL
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
-                SqlCommand cmd = new SqlCommand("UPDATE dbo.Funcionario SET Nome=@Nome, Cpf=@Cpf, DataNascimento=@DataNascimento WHERE Id=@Id", connection);
+                SqlCommand cmd = new SqlCommand("UPDATE dbo.Funcionario SET Nome=@Nome, Cpf=@Cpf, DataNascimento=@DataNascimento, DepartamentoId=@DepartamentoId WHERE Id=@Id", connection);
                 cmd.CommandType = CommandType.Text;
 
                 cmd.Parameters.AddWithValue("@Id", funcionario.Id);
                 cmd.Parameters.AddWithValue("@Nome", funcionario.Nome);
                 cmd.Parameters.AddWithValue("@Cpf", funcionario.Cpf);
                 cmd.Parameters.AddWithValue("@DataNascimento", funcionario.DataNascimento);
+                cmd.Parameters.AddWithValue("@DepartamentoId", funcionario.DepartamentoId);
 
                 connection.Open();
                 cmd.ExecuteNonQuery();

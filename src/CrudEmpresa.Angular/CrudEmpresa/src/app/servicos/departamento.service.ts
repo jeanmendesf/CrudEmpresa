@@ -18,6 +18,10 @@ export class DepartamentoService {
         return this.http.get<Departamento[]>(this.apiUrl + '/departamento')
     }
 
+    ObterDepartamentoPorId(id: number): Observable<Departamento> {
+        return this.http.get<Departamento>(this.apiUrl + '/departamento/' + id)
+    }
+
     adicionarDepartamento(departamento: Departamento) {
         return this.http.post(this.apiUrl + '/departamento/adicionar', departamento);
     }

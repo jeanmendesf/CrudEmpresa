@@ -37,7 +37,7 @@ namespace CrudEmpresa.API.Controllers
         public ActionResult ObterDepartamentoPorId(int id)
         {
             Departamento departamento = new Departamento();
-            departamento = _departamentoDAL.ObterDiretorPorId(id);
+            departamento = _departamentoDAL.ObterDepartamentoPorId(id);
 
             return Ok(departamento);
         }
